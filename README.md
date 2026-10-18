@@ -38,3 +38,9 @@ Pending commercial decisions: monthly amount, enquiry email, final public canoni
 - Enquiry delivery is still a launch blocker: enquiryEmail is empty, no delivery provider/environment variables are configured, and Gotter also has no verified receiving address. Never advertise the current brief tool as a submitted application. Enter the owner's verified receiving address in config.js to activate the email-draft flow, or provision a real delivery provider before implementing server submission. Current copy remains truthful while unconfigured.
 - Prices are quoted individually until an amount is confirmed. Domain inclusion is retained; exact arrangements and full service terms are agreed in a proposal.
 - To verify: node --check script.js; node --check config.js; validate page links/assets, sitemap and JSON-LD. There is no framework build, dependency installation or lint/type-check script.
+
+## Editorial redesign — 19 October 2026
+
+Replaced the brochure layout with a full purple typographic opening, development-fee ticket, three interactive design concepts, a concise initiative story, dark cost section and shorter FAQ. The name field personalises the concept locally; it is not stored or transmitted. Concept designs are explicitly labelled as illustrative and are not client work or fixed service templates. Keyboard-operable concept buttons expose their selected state, mobile navigation uses a native disclosure, and motion honours reduced-motion preferences.
+
+Space Grotesk is self-hosted, subset for the site and bundled under the SIL Open Font License (assets/fonts/OFL.txt). No runtime dependencies, third-party font requests or new tracking. The existing enquiry review/copy/download/email-draft behaviour and its unconfigured-delivery notice remain intact.

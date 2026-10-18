@@ -48,3 +48,43 @@ if ('IntersectionObserver' in window) {
    action.classList.toggle('is-hidden', entries[0].isIntersecting);
  }, {threshold: 0}).observe(document.getElementById('start'));
 }
+
+// Three live design explorations. These are illustrative, never presented as client work.
+const conceptThemes = {
+ cafe: {brand:'DAYBREAK', eyebrow:'GOOD MORNINGS START HERE.', heading:['A little slower.','A little better.'], description:['Great coffee. Something freshly baked.','A good reason to stay a while.'], link:'Pull up a chair ↗', nav:'OUR STORY   THE MENU   FIND US ↗', foot:'YOUR LOCAL FAVOURITE, IN THE MAKING.', counter:'01 — 03'},
+ studio: {brand:'FORM / STUDIO', eyebrow:'A LITTLE SPACE. A BIG DIFFERENCE.', heading:['Find your rhythm.','Make it yours.'], description:['Room to move. Space to reset.','A studio that feels like you.'], link:'Find your class ↗', nav:'THE STUDIO   CLASSES   SAY HELLO ↗', foot:'LESS PRESSURE. MORE POSSIBILITY.', counter:'02 — 03'},
+ trade: {brand:'BUILT RIGHT.', eyebrow:'GOOD WORK SPEAKS FOR ITSELF.', heading:['Built right.','From day one.'], description:['Care in the details. Pride in the finish.','Local expertise, properly delivered.'], link:'Let’s talk about your project ↗', nav:'OUR WORK   SERVICES   GET IN TOUCH ↗', foot:'YOUR NEXT PROJECT STARTS HERE.', counter:'03 — 03'}
+};
+const nameInput = document.getElementById('preview-name');
+const previewShell = document.querySelector('[data-preview-theme]');
+if (nameInput && previewShell) {
+ let selectedTheme = 'cafe';
+ const splitLine = (id, lines) => {
+  const target = document.getElementById(id);
+  target.replaceChildren(document.createTextNode(lines[0]), document.createElement('br'), document.createTextNode(lines[1]));
+ };
+ const showConcept = theme => {
+  const content = conceptThemes[theme];
+  if (!content) return;
+  selectedTheme = theme;
+  previewShell.dataset.previewTheme = theme;
+  document.getElementById('concept-brand').textContent = nameInput.value.trim() || content.brand;
+  document.getElementById('concept-eyebrow').textContent = content.eyebrow;
+  document.getElementById('concept-nav-copy').textContent = content.nav;
+  document.getElementById('concept-link').textContent = content.link;
+  document.getElementById('concept-foot').textContent = content.foot;
+  document.getElementById('concept-counter').textContent = content.counter;
+  splitLine('concept-heading', content.heading);
+  splitLine('concept-description', content.description);
+  document.querySelectorAll('[data-theme]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.theme === theme)));
+  const concept = document.getElementById('website-concept');
+  concept.classList.remove('is-changing');
+  // A frame boundary restarts the short transition without an animation loop.
+  requestAnimationFrame(() => concept.classList.add('is-changing'));
+ };
+ document.querySelectorAll('[data-theme]').forEach(button => button.addEventListener('click', () => showConcept(button.dataset.theme)));
+ nameInput.addEventListener('input', () => { document.getElementById('concept-brand').textContent = nameInput.value.trim() || conceptThemes[selectedTheme].brand; });
+}
+// Mobile navigation closes after a destination is chosen, including keyboard activation.
+const mobileMenu = document.querySelector('.mobile-menu');
+if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { mobileMenu.open = false; }));
