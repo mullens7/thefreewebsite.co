@@ -1,2 +1,2 @@
 /* Confirm these details before launch. This public file must never contain secrets. */
-window.SITE_CONFIG = { enquiryEmail: '', monthlyFee: '', canonicalUrl: '' };
+window.SITE_CONFIG = { enquiryEmail: '', monthlyFee: '', canonicalUrl: '', gotterUrl: 'https://gotter.co.uk' };

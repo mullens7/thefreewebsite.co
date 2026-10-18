@@ -19,3 +19,11 @@ No analytics, external fonts or cookies. Form data is not stored or submitted by
 Run python -m http.server 3000 from this directory and visit http://localhost:3000.
 
 The hero business example is explicitly illustrative. Brand images are optimised derivatives of the supplied artwork.
+
+## Gotter initiative refinement
+
+The Free Website Co remains the primary purple/white brand, with Gotter attribution in the header, hero, dedicated parent-brand section and footer. The official Gotter URL is https://gotter.co.uk, verified from the mullens7/gotter repository homepage setting on 18 October 2026. config.js provides a gotterUrl setting; static links and structured data retain the verified default. Update both if the official URL changes.
+
+The existing no-framework setup, logos, hosting configuration and local brief/copy/download/email flow remain. There are no package scripts, lint, type-check or build commands; JavaScript syntax and HTML/asset/link checks apply instead.
+
+Pending commercial decisions: monthly amount, enquiry email, final public canonical URL, domain choice and registration/ownership arrangements, security-maintenance scope, technical support scope, extra-service pricing, payment processing rate and service terms. No contract duration or cancellation terms have been invented. Domain inclusion is retained from the original confirmed offer; exact arrangements must be agreed before work starts.
