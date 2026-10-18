@@ -27,3 +27,14 @@ The Free Website Co remains the primary purple/white brand, with Gotter attribut
 The existing no-framework setup, logos, hosting configuration and local brief/copy/download/email flow remain. There are no package scripts, lint, type-check or build commands; JavaScript syntax and HTML/asset/link checks apply instead.
 
 Pending commercial decisions: monthly amount, enquiry email, final public canonical URL, domain choice and registration/ownership arrangements, security-maintenance scope, technical support scope, extra-service pricing, payment processing rate and service terms. No contract duration or cancellation terms have been invented. Domain inclusion is retained from the original confirmed offer; exact arrangements must be agreed before work starts.
+
+## Launch pass — 19 October 2026
+
+- Custom domain verified on the existing Vercel project: https://thefreewebsite.co/.
+- Added privacy and website-use terms reflecting the actual local-only brief/email-draft flow; these are not service-contract terms.
+- Added canonical/social metadata, a branded sharing image, sitemap, robots file and a 404 page.
+- Added a mobile enquiry action, usable footer links, optional business-name entry, explicit review/send wording, security headers and a CSP hash for structured data.
+- No advertising pixels, cookie storage or analytics were installed.
+- Enquiry delivery is still a launch blocker: enquiryEmail is empty, no delivery provider/environment variables are configured, and Gotter also has no verified receiving address. Never advertise the current brief tool as a submitted application. Enter the owner's verified receiving address in config.js to activate the email-draft flow, or provision a real delivery provider before implementing server submission. Current copy remains truthful while unconfigured.
+- Prices are quoted individually until an amount is confirmed. Domain inclusion is retained; exact arrangements and full service terms are agreed in a proposal.
+- To verify: node --check script.js; node --check config.js; validate page links/assets, sitemap and JSON-LD. There is no framework build, dependency installation or lint/type-check script.
