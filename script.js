@@ -49,42 +49,33 @@ if ('IntersectionObserver' in window) {
  }, {threshold: 0}).observe(document.getElementById('start'));
 }
 
-// Three live design explorations. These are illustrative, never presented as client work.
-const conceptThemes = {
- cafe: {brand:'DAYBREAK', eyebrow:'GOOD MORNINGS START HERE.', heading:['A little slower.','A little better.'], description:['Great coffee. Something freshly baked.','A good reason to stay a while.'], link:'Pull up a chair ↗', nav:'OUR STORY   THE MENU   FIND US ↗', foot:'YOUR LOCAL FAVOURITE, IN THE MAKING.', counter:'01 — 03'},
- studio: {brand:'FORM / STUDIO', eyebrow:'A LITTLE SPACE. A BIG DIFFERENCE.', heading:['Find your rhythm.','Make it yours.'], description:['Room to move. Space to reset.','A studio that feels like you.'], link:'Find your class ↗', nav:'THE STUDIO   CLASSES   SAY HELLO ↗', foot:'LESS PRESSURE. MORE POSSIBILITY.', counter:'02 — 03'},
- trade: {brand:'BUILT RIGHT.', eyebrow:'GOOD WORK SPEAKS FOR ITSELF.', heading:['Built right.','From day one.'], description:['Care in the details. Pride in the finish.','Local expertise, properly delivered.'], link:'Let’s talk about your project ↗', nav:'OUR WORK   SERVICES   GET IN TOUCH ↗', foot:'YOUR NEXT PROJECT STARTS HERE.', counter:'03 — 03'}
-};
-const nameInput = document.getElementById('preview-name');
-const previewShell = document.querySelector('[data-preview-theme]');
-if (nameInput && previewShell) {
- let selectedTheme = 'cafe';
- const splitLine = (id, lines) => {
-  const target = document.getElementById(id);
-  target.replaceChildren(document.createTextNode(lines[0]), document.createElement('br'), document.createTextNode(lines[1]));
+
+// Accessible portfolio carousel. Manual controls avoid unexpected movement while reading.
+const showcaseSlides = [
+ {image:'/assets/projects/site-safety.webp', name:'SITE SAFETY', type:'ECOMMERCE WEBSITE', alt:'Site Safety website — an ecommerce project from Gotter’s wider portfolio'},
+ {image:'/assets/projects/cuego.webp', name:'CUEGO', type:'DIGITAL ORDERING PLATFORM', alt:'Cuego website — a digital ordering project from Gotter’s wider portfolio'}
+];
+const showcaseImage = document.getElementById('showcase-image');
+if (showcaseImage) {
+ let activeSlide = 0;
+ const showSlide = index => {
+  activeSlide = (index + showcaseSlides.length) % showcaseSlides.length;
+  const slide = showcaseSlides[activeSlide];
+  showcaseImage.src = slide.image;
+  showcaseImage.alt = slide.alt;
+  document.getElementById('showcase-name').textContent = slide.name;
+  document.getElementById('showcase-type').textContent = slide.type;
+  document.querySelectorAll('[data-slide]').forEach(button => button.setAttribute('aria-pressed',String(Number(button.dataset.slide) === activeSlide)));
+  document.getElementById('carousel-status').textContent = `${slide.name}. Example ${activeSlide + 1} of ${showcaseSlides.length}.`;
  };
- const showConcept = theme => {
-  const content = conceptThemes[theme];
-  if (!content) return;
-  selectedTheme = theme;
-  previewShell.dataset.previewTheme = theme;
-  document.getElementById('concept-brand').textContent = nameInput.value.trim() || content.brand;
-  document.getElementById('concept-eyebrow').textContent = content.eyebrow;
-  document.getElementById('concept-nav-copy').textContent = content.nav;
-  document.getElementById('concept-link').textContent = content.link;
-  document.getElementById('concept-foot').textContent = content.foot;
-  document.getElementById('concept-counter').textContent = content.counter;
-  splitLine('concept-heading', content.heading);
-  splitLine('concept-description', content.description);
-  document.querySelectorAll('[data-theme]').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.theme === theme)));
-  const concept = document.getElementById('website-concept');
-  concept.classList.remove('is-changing');
-  // A frame boundary restarts the short transition without an animation loop.
-  requestAnimationFrame(() => concept.classList.add('is-changing'));
- };
- document.querySelectorAll('[data-theme]').forEach(button => button.addEventListener('click', () => showConcept(button.dataset.theme)));
- nameInput.addEventListener('input', () => { document.getElementById('concept-brand').textContent = nameInput.value.trim() || conceptThemes[selectedTheme].brand; });
+ document.querySelector('.carousel-arrow.previous').addEventListener('click', () => showSlide(activeSlide - 1));
+ document.querySelector('.carousel-arrow.next').addEventListener('click', () => showSlide(activeSlide + 1));
+ document.querySelectorAll('[data-slide]').forEach(button => button.addEventListener('click', () => showSlide(Number(button.dataset.slide))));
+ const showcase = document.querySelector('.showcase');
+ showcase.addEventListener('keydown', event => {
+  if (event.target.tagName !== 'BUTTON') return;
+  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+   event.preventDefault(); showSlide(activeSlide + (event.key === 'ArrowRight' ? 1 : -1));
+  }
+ });
 }
-// Mobile navigation closes after a destination is chosen, including keyboard activation.
-const mobileMenu = document.querySelector('.mobile-menu');
-if (mobileMenu) mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { mobileMenu.open = false; }));
