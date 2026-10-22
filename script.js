@@ -50,36 +50,6 @@ if ('IntersectionObserver' in window) {
 }
 
 
-// Accessible portfolio carousel. Manual controls avoid unexpected movement while reading.
-const showcaseSlides = [
- {image:'/assets/projects/site-safety.webp', name:'SITE SAFETY', type:'ECOMMERCE WEBSITE', alt:'Site Safety website — an ecommerce project from Gotter’s wider portfolio'},
- {image:'/assets/projects/cuego.webp', name:'CUEGO', type:'DIGITAL ORDERING PLATFORM', alt:'Cuego website — a digital ordering project from Gotter’s wider portfolio'}
-];
-const showcaseImage = document.getElementById('showcase-image');
-if (showcaseImage) {
- let activeSlide = 0;
- const showSlide = index => {
-  activeSlide = (index + showcaseSlides.length) % showcaseSlides.length;
-  const slide = showcaseSlides[activeSlide];
-  showcaseImage.src = slide.image;
-  showcaseImage.alt = slide.alt;
-  document.getElementById('showcase-name').textContent = slide.name;
-  document.getElementById('showcase-type').textContent = slide.type;
-  document.querySelectorAll('[data-slide]').forEach(button => button.setAttribute('aria-pressed',String(Number(button.dataset.slide) === activeSlide)));
-  document.getElementById('carousel-status').textContent = `${slide.name}. Example ${activeSlide + 1} of ${showcaseSlides.length}.`;
- };
- document.querySelector('.carousel-arrow.previous').addEventListener('click', () => showSlide(activeSlide - 1));
- document.querySelector('.carousel-arrow.next').addEventListener('click', () => showSlide(activeSlide + 1));
- document.querySelectorAll('[data-slide]').forEach(button => button.addEventListener('click', () => showSlide(Number(button.dataset.slide))));
- const showcase = document.querySelector('.showcase');
- showcase.addEventListener('keydown', event => {
-  if (event.target.tagName !== 'BUTTON') return;
-  if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
-   event.preventDefault(); showSlide(activeSlide + (event.key === 'ArrowRight' ? 1 : -1));
-  }
- });
-}
-
 const mobileMenu = document.querySelector('.mobile-menu');
 if (mobileMenu) {
  mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => { mobileMenu.open = false; }));

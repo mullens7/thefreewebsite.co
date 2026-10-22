@@ -51,3 +51,7 @@
  .legal-copy p{font-size:16px}.legal-footer nav a{min-height:44px;display:inline-flex;align-items:center}
 }
 @media(max-width:380px){.feature-grid{grid-template-columns:1fr}.feature-card{padding:24px}.feature-card p{font-size:15px}.feature-icon{margin-bottom:12px}.hero h1{font-size:26px}.hero-proof{font-size:11px}.phone-scene{transform:scale(.9);transform-origin:top center;height:390px}.showcase-caption{font-size:9px}.showcase-caption span:last-child{font-size:7px}}
+
+/* The homepage focuses on the offer rather than portfolio examples. */
+.hero{padding-bottom:105px}.hero>.wave{height:65px}.welcome{padding-top:75px}.mobile-grid{grid-template-columns:1fr;max-width:740px;text-align:center;gap:0}.mobile-first{padding:65px 0}.mobile-grid h2{margin-inline:auto}.mobile-grid p{max-width:650px;margin-inline:auto}
+@media(max-width:600px){.hero{padding-bottom:80px}.hero>.wave{height:45px}.welcome{padding-top:55px}.mobile-first{padding:50px 0}}

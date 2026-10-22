@@ -39,14 +39,6 @@ Pending commercial decisions: monthly amount, enquiry email, final public canoni
 - Prices are quoted individually until an amount is confirmed. Domain inclusion is retained; exact arrangements and full service terms are agreed in a proposal.
 - To verify: node --check script.js; node --check config.js; validate page links/assets, sitemap and JSON-LD. There is no framework build, dependency installation or lint/type-check script.
 
-## Editorial redesign — 19 October 2026
+## Homepage update — 22 October 2026
 
-Replaced the brochure layout with a full purple typographic opening, development-fee ticket, three interactive design concepts, a concise initiative story, dark cost section and shorter FAQ. The name field personalises the concept locally; it is not stored or transmitted. Concept designs are explicitly labelled as illustrative and are not client work or fixed service templates. Keyboard-operable concept buttons expose their selected state, mobile navigation uses a native disclosure, and motion honours reduced-motion preferences.
-
-Space Grotesk is self-hosted, subset for the site and bundled under the SIL Open Font License (assets/fonts/OFL.txt). No runtime dependencies, third-party font requests or new tracking. The existing enquiry review/copy/download/email-draft behaviour and its unconfigured-delivery notice remain intact.
-
-## Reference-led rebuild — 19 October 2026
-
-Rebuilt from the supplied 78-second mobile screen recording: centred dark-purple hero, framed portfolio carousel with arrows and dots, curved purple/white section transitions, a mobile-first section with original phone illustrations, white feature cards, portfolio grid, transparent cost cards and rounded FAQ accordions. The existing public brand, Gotter relationship and enquiry handling are retained. No reference-site assets, customer reviews, ratings, customer counts, prices, trial, cancellation or performance claims were copied.
-
-Carousel previews show separate Gotter projects (Site Safety and Cuego) captured from the public-facing pages. Their scope differs from individual initiative projects; captions make that distinction explicit. The reference's social-proof sections are replaced by factual service commitments rather than fabricated testimonials. Carousel supports arrow buttons, direct dots, keyboard arrow keys and live status; it does not auto-advance.
+The page focuses on the initiative, included services, costs and enquiry process. No client work, portfolio examples or project screenshots are displayed. Social previews use the initiative logo. The mobile navigation and inline Gotter logo endorsement are retained.
