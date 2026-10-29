@@ -1,6 +1,5 @@
-/* Public settings only: never put API keys here. Enquiries go to Gotter by email or phone (see the #start section in index.html). */
+/* Public settings only: never put API keys here. Enquiries go to Gotter by email or phone, the same contact details as gotter.co.uk. */
 window.SITE_CONFIG = {
-  monthlyFee: '', // No amount advertised until confirmed. Monthly costs are agreed before work starts.
-  canonicalUrl: 'https://thefreewebsite.co/',
+  monthlyFee: '', // e.g. '£25'. Leave blank until confirmed: the page then says the fee is agreed before work starts.
   gotterUrl: 'https://gotter.co.uk'
 };

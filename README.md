@@ -1,51 +1,63 @@
 # The Free Website Co.
 
-A responsive single-page website using the supplied logo and purple #4443c5. Plain HTML, CSS and JavaScript; no install or build step.
+The website for The Free Website Co., an initiative by Gotter (a trading brand of Mullens Ltd): custom websites for small businesses with no upfront development fee and an agreed monthly fee. Live at https://thefreewebsite.co/.
 
-## Deploy to Vercel
+Plain HTML, CSS and JavaScript. No framework, install or build step, and no analytics, cookies, forms or third-party requests.
 
-Import mullens7/thefreewebsite.co. Select Other as the framework, leave the build command empty, and use the repository root as the output directory. Connect the custom domain when ready.
+## Design
 
-## Before launch
+The site shares Gotter's design language without copying gotter.co.uk:
 
-Edit config.js with the confirmed monthlyFee (for example £25) and canonicalUrl. No price is invented: with the fee blank the page says it is agreed before work starts.
+- Typography: self-hosted Geist (headings and text) and Caveat (handwritten accents), the same fonts as gotter.co.uk. Licences are in `assets/fonts`.
+- Colour: the initiative's own purple `#4443c5` leads. Gotter's midnight `#0b0f2e`, lime `#d7ff3f` and orange `#ff7a00` are the accents.
+- Shared patterns: pill buttons, the email/call contact cards, underlined text links, the capability strip, `+` FAQ toggles, the full-screen dialog menu and the midnight footer.
+- Its own identity: the FW logo, a purple (not midnight) menu and closing section, the `£0` sticker, and an illustrative website in the hero. The hero website is decorative, not a client project.
 
-Enquiries are made directly by email (hello@gotter.co.uk, with a “Free website enquiry” subject) or phone (+44 7796 184 248) from the #start section. There is no form, and the site collects no enquiry details.
+Gotter is credited in the header, hero, mobile menu, the "Gotter builds bespoke, too" panel (linking to https://gotter.co.uk/services) and the footer.
 
-No analytics, external fonts or cookies. Form data is not stored or submitted by this site. Add final business identity and any service terms when confirmed. Add static canonical/og:url tags and a sitemap after confirming the public domain.
+## Contact
 
-## Preview
+Enquiries go to Gotter by email (hello@gotter.co.uk, with a "Free website enquiry" subject) or phone (+44 7796 184 248). These are the same contact details as gotter.co.uk. There is no form, and the site collects no enquiry details.
 
-Run python -m http.server 3000 from this directory and visit http://localhost:3000.
+gotter.co.uk/free-website links to `#the-cost`, `#included` and `#questions` on this site. Keep those ids.
 
-The hero business example is explicitly illustrative. Brand images are optimised derivatives of the supplied artwork.
+## Files
 
-## Gotter initiative refinement
+- `index.html`: the single page (hero, about, what's included, costs, how it works, FAQs, Gotter's bespoke services, get started).
+- `privacy.html`, `terms.html`, `404.html`: share the header and footer markup with the homepage. Update all four files if either changes.
+- `styles.css`: one stylesheet for every page.
+- `script.js`: Gotter link, year, optional monthly fee, header rule, dialog menu and scroll reveals. All content works without JavaScript.
+- `config.js`: `monthlyFee` (blank until confirmed) and `gotterUrl`.
+- `assets/social.png`: 1200×630 sharing image, rendered from `docs/social-card.html`. To regenerate it, serve the repository root, open `/docs/social-card.html` at 1200×630 and take a screenshot.
+- `vercel.json`: clean URLs, security headers and a long cache for fonts. `.vercelignore` keeps `README.md` and `docs/` off the public site.
 
-The Free Website Co remains the primary purple/white brand, with Gotter attribution in the header, hero, dedicated parent-brand section and footer. The official Gotter URL is https://gotter.co.uk, verified from the mullens7/gotter repository homepage setting on 18 October 2026. config.js provides a gotterUrl setting; static links and structured data retain the verified default. Update both if the official URL changes.
+## Content security policy
 
-The existing no-framework setup, logos, hosting configuration and local brief/copy/download/email flow remain. There are no package scripts, lint, type-check or build commands; JavaScript syntax and HTML/asset/link checks apply instead.
+The CSP allows the JSON-LD block in `index.html` by its hash. **If you edit that JSON-LD, recompute the hash and update `vercel.json`**, or browsers will block it:
 
-Pending commercial decisions: monthly amount, enquiry email, final public canonical URL, domain choice and registration/ownership arrangements, security-maintenance scope, technical support scope, extra-service pricing, payment processing rate and service terms. No contract duration or cancellation terms have been invented. Domain inclusion is retained from the original confirmed offer; exact arrangements must be agreed before work starts.
+```sh
+python3 -c "import re,hashlib,base64;h=open('index.html').read();m=re.search(r'<script type=\"application/ld\+json\">(.*?)</script>',h,re.S).group(1);print(base64.b64encode(hashlib.sha256(m.encode()).digest()).decode())"
+```
 
-## Launch pass — 19 October 2026
+The page uses no inline styles or scripts.
 
-- Custom domain verified on the existing Vercel project: https://thefreewebsite.co/.
-- Added privacy and website-use terms reflecting the actual local-only brief/email-draft flow; these are not service-contract terms.
-- Added canonical/social metadata, a branded sharing image, sitemap, robots file and a 404 page.
-- Added a mobile enquiry action, usable footer links, optional business-name entry, explicit review/send wording, security headers and a CSP hash for structured data.
-- No advertising pixels, cookie storage or analytics were installed.
-- Enquiry delivery is still a launch blocker: enquiryEmail is empty, no delivery provider/environment variables are configured, and Gotter also has no verified receiving address. Never advertise the current brief tool as a submitted application. Enter the owner's verified receiving address in config.js to activate the email-draft flow, or provision a real delivery provider before implementing server submission. Current copy remains truthful while unconfigured.
-- Prices are quoted individually until an amount is confirmed. Domain inclusion is retained; exact arrangements and full service terms are agreed in a proposal.
-- To verify: node --check script.js; node --check config.js; validate page links/assets, sitemap and JSON-LD. There is no framework build, dependency installation or lint/type-check script.
+## Pending owner decisions
 
-## Homepage update — 22 October 2026
+No price is published. If `monthlyFee` is set in `config.js` (for example `'£25'`), the cost card and FAQ show it. Otherwise they say the fee is agreed before work starts.
 
-The page focuses on the initiative, included services, costs and enquiry process. No client work, portfolio examples or project screenshots are displayed. Social previews use the initiative logo. The mobile navigation and inline Gotter logo endorsement are retained.
+Still to confirm: the monthly amount, domain registration and ownership arrangements, security-maintenance and support scope, the payment-processing rate, pricing for extras, and the contract and cancellation terms. The site does not invent any of these.
 
-## Direct contact — 29 October 2026
+The site leads with "free", and says next to it that monthly costs apply. Before paid promotion, check the wording against the CAP Code's rules on "free" claims (3.23–3.26), because the monthly plan is a condition of the free build.
 
-- Replaced the local brief-preparation form and its “enquiry delivery is being connected” notice with working email and telephone actions to Gotter, which designs, develops and maintains websites for the initiative.
-- Every “Get started” link still leads to #start, which now holds the contact actions.
-- Removed the form code from script.js and the enquiryEmail setting from config.js; updated privacy and website terms to describe email and phone contact.
-- The JSON-LD inline script is unchanged, so its CSP hash in vercel.json still applies.
+## Deploy
+
+The existing Vercel project serves `main` at https://thefreewebsite.co/: framework "Other", no build command, repository root as output. Merging to `main` deploys to production.
+
+## Checks
+
+```sh
+node --check script.js && node --check config.js
+python3 -m http.server 3000   # then visit http://localhost:3000
+```
+
+Before release, check the layout at 320, 375, 390, 430, 768, 1024, 1366, 1440 and 1920px. Also check the menu (Escape closes it, focus returns to the Menu button), reduced motion, and the browser console with `vercel.json`'s CSP applied (no violations). There are no package scripts, lint or type-check commands.
