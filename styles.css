@@ -55,3 +55,19 @@
 /* The homepage focuses on the offer rather than portfolio examples. */
 .hero{padding-bottom:105px}.hero>.wave{height:65px}.welcome{padding-top:75px}.mobile-grid{grid-template-columns:1fr;max-width:740px;text-align:center;gap:0}.mobile-first{padding:65px 0}.mobile-grid h2{margin-inline:auto}.mobile-grid p{max-width:650px;margin-inline:auto}
 @media(max-width:600px){.hero{padding-bottom:80px}.hero>.wave{height:45px}.welcome{padding-top:55px}.mobile-first{padding:50px 0}}
+
+/* Direct contact: enquiries go to Gotter by email or phone. */
+.contact-panel{background:#ffffff14;border:1px solid #ffffff30;border-radius:10px;padding:28px}
+.contact-panel .form-kicker{margin-bottom:16px}
+.contact-action{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 16px;margin-bottom:12px;padding:18px 20px;border-radius:8px;background:#fff;color:var(--deep);text-decoration:none;transition:transform .2s,box-shadow .2s}
+.contact-action:hover{transform:translateY(-2px);box-shadow:0 8px 22px #1c194933}
+.contact-action:focus-visible{outline:3px solid #fff;outline-offset:3px}
+.contact-action span{grid-column:1;font-size:12px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--purple)}
+.contact-action strong{grid-column:1;font-size:clamp(18px,4.6vw,24px);font-weight:700;overflow-wrap:anywhere}
+.contact-action i{grid-column:2;grid-row:1/span 2;font-style:normal;font-size:22px;color:var(--purple)}
+.contact-tips-title{margin:22px 0 8px;font-weight:700;font-size:15px}
+.contact-tips{margin:0 0 18px;padding-left:20px;font-size:15px;line-height:1.8;color:#e4e0fb}
+.contact-note{font-size:13px;line-height:1.7;color:#e4dfff;margin:0}
+.contact-note a{color:#fff;text-underline-offset:3px}
+/* The decorative hero shape must never cause sideways scrolling on narrow phones. */
+body{overflow-x:clip}

@@ -8,9 +8,9 @@ Import mullens7/thefreewebsite.co. Select Other as the framework, leave the buil
 
 ## Before launch
 
-Edit config.js with the confirmed enquiryEmail, monthlyFee (for example £25) and canonicalUrl. No price is invented: with the fee blank the page says it is agreed before work starts.
+Edit config.js with the confirmed monthlyFee (for example £25) and canonicalUrl. No price is invented: with the fee blank the page says it is agreed before work starts.
 
-The form prepares a brief in the browser and supports copying and downloading. With an enquiry email configured it also opens an email draft. It does not submit to a server or claim an enquiry was sent. Until configured, the section explicitly says enquiries open soon.
+Enquiries are made directly by email (hello@gotter.co.uk, with a “Free website enquiry” subject) or phone (+44 7796 184 248) from the #start section. There is no form, and the site collects no enquiry details.
 
 No analytics, external fonts or cookies. Form data is not stored or submitted by this site. Add final business identity and any service terms when confirmed. Add static canonical/og:url tags and a sitemap after confirming the public domain.
 
@@ -42,3 +42,10 @@ Pending commercial decisions: monthly amount, enquiry email, final public canoni
 ## Homepage update — 22 October 2026
 
 The page focuses on the initiative, included services, costs and enquiry process. No client work, portfolio examples or project screenshots are displayed. Social previews use the initiative logo. The mobile navigation and inline Gotter logo endorsement are retained.
+
+## Direct contact — 29 October 2026
+
+- Replaced the local brief-preparation form and its “enquiry delivery is being connected” notice with working email and telephone actions to Gotter, which designs, develops and maintains websites for the initiative.
+- Every “Get started” link still leads to #start, which now holds the contact actions.
+- Removed the form code from script.js and the enquiryEmail setting from config.js; updated privacy and website terms to describe email and phone contact.
+- The JSON-LD inline script is unchanged, so its CSP hash in vercel.json still applies.
